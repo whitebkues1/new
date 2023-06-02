@@ -1,0 +1,212 @@
+mail_content = """
+        <html>
+            <head>
+                <style type="text/css">
+                    table.gridtable {
+                        font-family: verdana,arial,sans-serif;
+                        font-size:11px;
+                        color:#333333;
+                        border-width: 1px;
+                        border-color: #409eff;
+                        border-collapse: collapse;
+                        width:1800px;
+                    }
+                    table.gridtable th {
+                        border-width: 1px;
+                        padding: 6px;
+                        border-style: solid;
+                        border-color: #666666;
+                        color:white;
+                        background-color: #409eff;
+                        word-break:keep-all;
+                        word-wrap: break-word;
+                        white-space:nowrap;
+                    }
+                    table.gridtable td {
+                        border-width: 1px;
+                        padding: 10px;
+                        border-style: solid;
+                        border-color: #666666;
+                        background-color: #ffffff;
+                        word-break:keep-all;
+                        word-wrap: break-word;
+                        white-space:nowrap;
+                    }
+                    h2 {
+                        margin-top:40px;
+                        font-family: Verdana, Arial, Helvetica, sans-serif;
+                        font-size: small;
+                        font-style: normal;
+                        font-weight: bolder;
+                        color: #990066;
+                        border-top: thin dotted #990033;
+                        border-right: thin none #990033;
+                        border-bottom: thin none #990033;
+                        border-left: thin none #990033;
+                        padding-top: 12px;
+                        padding-right: 0px;
+                        padding-bottom: 6px;
+                        padding-left: 0px;
+                    }
+                </style>
+            </head>
+            <body>
+                Hi,"""+HiTitle+"""
+                <hr>
+                <h2 style="color:red;border:2px solid black">Test Results:</h2>
+                """+ compareSSDDataStr +"""
+                <span style="color:black;font-size:10px;">●<span style="font-weight:bold;font-size:small;font-family: Verdana, Arial, Helvetica, sans-serif;">: Reference SSD Data</span> </span> 
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="margin-left:100px;font-weight:bold;color:blue;font-size:small;font-family: Verdana, Arial, Helvetica, sans-serif;">Blue<span style="">: 10% higher than Spec. </span> </span>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="margin-left:100px;font-weight:bold;color:red;font-size:small;font-family: Verdana, Arial, Helvetica, sans-serif;">Red<span style="">: 10% lower than Spec. </span> </span> 
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="margin-left:100px;font-weight:bold;color:orange;font-size:small;font-family: Verdana, Arial, Helvetica, sans-serif;">Orange<span style="">: To be tested(TBT)</span></span>
+                <br>
+                <br>
+                <hr>
+                <h2 style="color:red;border:2px solid black">Platform Status:</h2>
+                <table class="gridtable"  width="800px">
+                    <tr>
+                        <th>SSD</th>
+                        <th>Board</th>
+                        <th>Platform</th>
+                        <th>OS</th>
+                        <th>Driver</th>
+                        <th>Tool</th>
+                        <th>DB</th>
+                        <th>Log</th>
+                        <th>Jobs</th>
+                    </tr>
+                    """+platform_status+"""
+                </table><br><br>
+                <h2 style="color:blue;border:2px solid black">"""+ Board_IdleUseRate +"""</h2>
+                <table class="gridtable"  width="800px">
+                    <tr align="left">
+                        <th align="left">#</th>
+                        <th align="left">Bar code</th>
+                        <th align="left">Vendor</th>
+                        <th align="left">Model</th>
+                        <th align="left">PCIe</th>
+                        <th align="left">Type</th>
+                        <th align="left">CPU Vendor</th>
+                        
+                        <th align="left">Memory</th>
+                        <th align="left">Region</th>
+                        <th align="center">Use Rate</th>
+                    </tr>
+                    """+platform_summary+"""
+                </table><br><h2 style="color:blue;border:2px solid black">""" + Board_InUse + """</h2><br><hr style="border:5px solid white">
+                <h2 style="color:red;border:2px solid black">Job Status:</h2><br>
+                <h2 style="color:green;border:2px solid black">Success:</h2>
+                <table class="gridtable"  width="1600px">
+                    <tr align="left">
+                        <th align="left">#</th>
+                        <th align="left">Node</th>
+                        <th align="left">SSD</th>
+                        <th align="left">Capacity</th>
+                        <th align="left">Board</th>
+                        <th align="left">Platform</th>
+                        <th align="left">OS</th>
+                        <th align="left">Tests</th>
+                        <th align="left">Job</th>
+                        <th align="left">Driver</th>
+                        <th align="left">Tool</th>
+                        <th align="left">Start Time</th>
+                        <th align="left">Finish Time</th>
+                        <th align="left">Total Time</th>
+                        <th align="left">Status</th>
+                        <th align="left">Region</th>
+                    </tr>
+                    """+success_order_str+"""
+                </table><br><hr style="border:5px solid white">
+                <h2 style="color:Orange;border:2px solid black">Ongoing:</h2>
+                <table class="gridtable"  width="1600px">
+                    <tr align="left">
+                        <th align="left">#</th>
+                        <th align="left">Node</th>
+                        <th align="left">SSD</th>
+                        <th align="left">Capacity</th>
+                        <th align="left">Board</th>
+                        <th align="left">Platform</th>
+                        <th align="left">OS</th>
+                        <th align="left">Tests</th>
+                        <th align="left">Job</th>
+                        <th align="left">Driver</th>
+                        <th align="left">Tool</th>
+                        <th align="left">Create Time</th>
+                        <th align="left">Start Time</th>
+                        <th align="left">Status</th>
+                        <th align="left">Region</th>
+                    </tr>
+                    """+ongoing_order_str+"""
+                </table><br><hr style="border:5px solid white">
+
+                <h2 style="color:blue;border:2px solid black">Queuing:</h2>
+                <table class="gridtable"  width="1600px">
+                    <tr align="left">
+                        <th align="left">#</th>
+                        <th align="left">Node</th>
+                        <th align="left">SSD</th>
+                        <th align="left">Capacity</th>
+                        <th align="left">Board</th>
+                        <th align="left">Platform</th>
+                        <th align="left">OS</th>
+                        <th align="left">Tests</th>
+                        <th align="left">Job</th>
+                        <th align="left">Driver</th>
+                        <th align="left">Tool</th>
+                        <th align="left">Create Time</th>
+                        <th align="left">Status</th>
+                        <th align="left">Region</th>
+                    </tr>
+                    """+queuing_order_str+"""
+                </table><br><hr style="border:5px solid white">
+
+                <h2 style="color:red;border:2px solid black">Failure:</h2>
+                <table class="gridtable" width="1600px">
+                    <tr align="left">
+                        <th align="left">#</th>
+                        <th align="left">Node</th>
+                        <th align="left">SSD</th>
+                        <th align="left">Capacity</th>
+                        <th align="left">Board</th>
+                        <th align="left">Platform</th>
+                        <th align="left">OS</th>
+                        <th align="left">Tests</th>
+                        <th align="left">Job</th>
+                        <th align="left">Driver</th>
+                        <th align="left">Tool</th>
+                        <th align="left">Start Time</th>
+                        <th align="left">Finish Time</th>
+                        <th align="left">Total Time</th>
+                        <th align="left">Status</th>
+                        <th align="left">Region</th>
+                    </tr>
+                    """+failure_order_str+"""
+                </table><hr>
+            </body>
+        </html>
+    """
+	
+	
+	
+	for index,item in enumerate(failure_order):
+        failure_order_str += f"""
+            <tr>
+                <td>{index + 1}</td>
+                <td>{item['hostList']['system_info']['host_name']}</td> 
+                <td>{ item['hostList']['system_info']['ssd_info']['vender'] + " " + item['hostList']['system_info']['ssd_info']['name'] if item['hostList']['system_info']['ssd_info']['name'] else  item['hostList']['system_info']['ssd_info']['vender'] + " " + item['hostList']['system_info']['ssd_info']['model']}</td>  
+                <td>{item['hostList']['system_info']['ssd_info']['capacity']}</td>
+                <td>{item['hostList']['system_info']['board_info']['vender'] + " " + item['hostList']['system_info']['board_info']['model']}</td> 
+                
+                <td>{item['hostList']['system_info']['category']}</td> 
+                <td>{OSNameMap[item['hostList']['system_info']['host_os']['issue']]}</td> 
+                <td>{item['hostList']['job_info']['version'] + " " + item['hostList']['job_info']['spec']}</td> 
+                <td>{item['hostList']['job_info']['item']}</td>
+                <td>{item['hostList']['system_info']['host_os']['driver']}</td> 
+                
+                <td>{item['hostList']['job_info']['tool']['name']}</td> <td>{item['hostList']['startTime']}</td> 
+                <td>{item['hostList']['finishTime']}</td> 
+                <td>{totalTime(item['hostList']['startTime'],item['hostList']['finishTime'])}</td>
+                <td>{item['hostList']['result']}</td> 
+                <td>{item['location']}</td> 
+            </tr>
+        """
